@@ -12,7 +12,7 @@ public static class MouseInput
         var libAddress = LoadLibraryW("win32u.dll");
 
         if (libAddress == default)
-            throw new Exception("Failed to import user32.dll");
+            throw new Exception("Failed to import win32u.dll");
 
         var methodAddress = GetProcAddress(libAddress, "NtUserInjectMouseInput");
 
