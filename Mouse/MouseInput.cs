@@ -8,6 +8,7 @@ public static class MouseInput
 
     public static unsafe void Inject(MouseInfo input)
     {
+        Entry:
         if (_injectMouseInput != null)
             _injectMouseInput(new[] { input }, 1);
 
@@ -22,6 +23,6 @@ public static class MouseInput
             throw new Exception("Could not find NtUserInjectMouseInput method in user32.dll");
 
         _injectMouseInput = (delegate* unmanaged[Stdcall]<MouseInfo[], int, nint>)methodAddress;
-        _injectMouseInput(new[] { input }, 1);
+        goto Entry;
     }
 }
