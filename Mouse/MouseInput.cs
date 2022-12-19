@@ -17,7 +17,7 @@ public static class MouseInput
         var methodAddress = GetProcAddress(libAddress, "NtUserInjectMouseInput");
 
         if (methodAddress == default)
-            throw new Exception("Could not find InjectMouseInput method in user32.dll");
+            throw new Exception("Could not find NtUserInjectMouseInput method in user32.dll");
 
         _injectMouseInput = (delegate* unmanaged[Stdcall]<MouseInfo[], int, nint>)methodAddress;
         _injectMouseInput(new[] { input }, 1);
