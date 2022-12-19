@@ -7,7 +7,7 @@ var input = new MouseInfo
     MouseData = default,
     Options = MouseOptions.MoveNoCoalesce,
     TimeOffsetInMilliseconds = default,
-    ExtraInfo = default,
+    ExtraInfo = default
 };
 
 MouseInput.Inject(input);

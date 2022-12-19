@@ -15,7 +15,7 @@ public struct MouseInfo
     public MouseOptions Options;
 
     // Gets or sets the baseline, or reference value, for timed input events such as a double click/tap.
-    public uint TimeOffsetInMilliseconds ;
+    public uint TimeOffsetInMilliseconds;
 
     // Gets or sets the extra information associated with the mouse event.
     public IntPtr ExtraInfo;

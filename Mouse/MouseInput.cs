@@ -4,6 +4,8 @@ namespace Dynamic_Mouse_Input.Mouse;
 
 public static class MouseInput
 {
+    private static unsafe delegate* unmanaged[Stdcall]<MouseInfo[], int, nint> _injectMouseInput;
+
     public static unsafe void Inject(MouseInfo input)
     {
         if (_injectMouseInput != null)
@@ -22,6 +24,4 @@ public static class MouseInput
         _injectMouseInput = (delegate* unmanaged[Stdcall]<MouseInfo[], int, nint>)methodAddress;
         _injectMouseInput(new[] { input }, 1);
     }
-
-    private static unsafe delegate* unmanaged[Stdcall]<MouseInfo[], int, nint> _injectMouseInput;
 }
