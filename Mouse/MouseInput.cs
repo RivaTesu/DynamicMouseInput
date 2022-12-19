@@ -8,21 +8,21 @@ public static class MouseInput
 
     public static unsafe void Inject(MouseInfo input)
     {
-        Entry:
-        if (_injectMouseInput != null)
-            _injectMouseInput(new[] { input }, 1);
+        if (_injectMouseInput == null)
+        {
+            var libAddress = LoadLibraryW("win32u.dll");
 
-        var libAddress = LoadLibraryW("win32u.dll");
+            if (libAddress == default)
+                throw new Exception("Failed to import win32u.dll");
 
-        if (libAddress == default)
-            throw new Exception("Failed to import win32u.dll");
+            var methodAddress = GetProcAddress(libAddress, "NtUserInjectMouseInput");
 
-        var methodAddress = GetProcAddress(libAddress, "NtUserInjectMouseInput");
+            if (methodAddress == default)
+                throw new Exception("Could not find NtUserInjectMouseInput method in user32.dll");
 
-        if (methodAddress == default)
-            throw new Exception("Could not find NtUserInjectMouseInput method in user32.dll");
+            _injectMouseInput = (delegate* unmanaged[Stdcall]<MouseInfo[], int, nint>)methodAddress;
+        }
 
-        _injectMouseInput = (delegate* unmanaged[Stdcall]<MouseInfo[], int, nint>)methodAddress;
-        goto Entry;
+        _injectMouseInput(new[] { input }, 1);
     }
 }
