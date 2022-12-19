@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dynamic Mouse Input", "Dynamic Mouse Input.csproj", "{13CE3ADD-F259-4345-86B1-1C73EA1370F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13CE3ADD-F259-4345-86B1-1C73EA1370F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13CE3ADD-F259-4345-86B1-1C73EA1370F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13CE3ADD-F259-4345-86B1-1C73EA1370F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13CE3ADD-F259-4345-86B1-1C73EA1370F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF1DA0E6-7127-4D14-AE54-E9E86674415A}
+	EndGlobalSection
+EndGlobal
